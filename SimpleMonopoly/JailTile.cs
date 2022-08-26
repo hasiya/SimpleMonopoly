@@ -9,7 +9,14 @@ namespace SimpleMonopoly
 
         public override void TileAction(Player player, Board board)
         {
-            throw new NotImplementedException();
+            if (player.IsInJail)
+            {
+                Util.Print($"{player.Name} is in Jail");
+            }
+            else
+            {
+                Util.Print($"{player.Name} is visiting Jail");
+            }
         }
     }
 }

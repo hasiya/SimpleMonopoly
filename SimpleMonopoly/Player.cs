@@ -6,8 +6,10 @@ namespace SimpleMonopoly
         public string Name { get; set; }
         public int Money { get; set; }
         public int Position { get; set; }
-        List<PropertyTile> properties = new List<PropertyTile>();
         public bool IsInJail { get; set; }
+        public int NumberOfTurns { get; set; }
+        List<PropertyTile> properties = new List<PropertyTile>();
+        
 
 
         public Player(string name)
@@ -16,6 +18,7 @@ namespace SimpleMonopoly
             Money = 2000;
             Position = 0;
             IsInJail = false;
+            NumberOfTurns = 0;
         }
 
         public void AddMoney(int amount)
@@ -32,6 +35,11 @@ namespace SimpleMonopoly
         {
             Random random = new Random();
             return random.Next(6) + 1;
+        }
+
+        public void AddTurn()
+        {
+            NumberOfTurns++;
         }
 
         public override string? ToString()

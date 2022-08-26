@@ -10,6 +10,7 @@ namespace SimpleMonopoly
         public override void TileAction(Player player, Board board)
         {
             player.AddMoney(200);
+            board.PlayRounds++;
             Util.Print($"{player.Name} is awarded £200 for passing/landing on Go!");
             
         }

@@ -10,6 +10,7 @@ namespace SimpleMonopoly
         public override void TileAction(Player player, Board board)
         {
             Random random = new Random();
+            
             int rand = random.Next(3) + 1;
             switch (rand)
             {
@@ -19,10 +20,11 @@ namespace SimpleMonopoly
                     break;
                 case 2:
                     player.SubtractMoney(2000);
-                    Util.Print($"{player.Name} gets a black eye and loses £2000 trying to double up in the casini.")
+                    Util.Print($"{player.Name} gets a black eye and loses £2000 trying to double up in the casini.");
                     break;
                 case 3:
-
+                    Util.Print($"{player.Name} was sent to jail for a bank roberry");
+                    board.MovePlayerTo(Board.JAIL_POSITION);                    
                     break;
                 default:
                     break;

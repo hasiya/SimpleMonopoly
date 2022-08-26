@@ -5,17 +5,19 @@ namespace SimpleMonopoly
     {
         public int Rent { get; set; }
         public int Cost { get; set; }
+        public Player? Owner { get; set; }
 
 
         public PropertyTile(string name, int rent, int cost) : base(name)
         {
             Cost = cost;
             Rent = rent;
+            Owner = null;
         }
 
         public override void TileAction(Player player, Board board)
         {
-            throw new NotImplementedException();
+            Util.Print($"{player.Name} is at {Name}");
         }
 
         public override string? ToString()

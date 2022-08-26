@@ -4,7 +4,8 @@ namespace SimpleMonopoly
     public class Board
     {
 
-        public const int JailPosition = 2;
+        public const int JAIL_POSITION = 2;
+        public const int GO_POSITION = 0;
 
         //Tile[] tiles = new Tile[12];
         public Tile[] Tiles { get; set; }
@@ -13,17 +14,8 @@ namespace SimpleMonopoly
 
         public Player CurrentPlayer { get; set; }
 
-        //string[,] propertyNames =
-        //{
-        //    {"Old Kent Road",2},
-        //    {"The Strand",2},
-        //    {"Fleet Street",2},
-        //    {"Oxford Street",2},
-        //    {"Mayfair",2},
-        //    {"Park Lane",2},
-        //    {"Whitechapel Road",2},
-        //    {"Vine Street",2}
-        //};
+        public int PlayRounds { get; set; }
+
 
         public Board()
         {
@@ -31,6 +23,7 @@ namespace SimpleMonopoly
             Players[0] = new Player("Boot");
             Players[1] = new Player("Dog");
 
+            PlayRounds = 0;
             initialiaseCurrentPlayer(Players);
 
             Tiles = new Tile[12];
@@ -49,7 +42,6 @@ namespace SimpleMonopoly
 
 
         }
-
 
         private void initialiaseCurrentPlayer(Player[] players)
         {
@@ -70,10 +62,18 @@ namespace SimpleMonopoly
         }
 
 
-        public void MovePlayer(int numberOfTiels)
+        public void MovePlayer(int numberOfTiels, bool diceMove)
         {
             int newPosition = (CurrentPlayer.Position + numberOfTiels) % Tiles.Length;
 
+            if (diceMove)
+            {
+                if (newPosition < CurrentPlayer.Position)
+                {
+                    Tiles[GO_POSITION].TileAction(CurrentPlayer, this);
+                }
+                CurrentPlayer.AddTurn();
+            }
 
             CurrentPlayer.Position = newPosition;
             Tiles[newPosition].TileAction(CurrentPlayer, this);
@@ -83,6 +83,16 @@ namespace SimpleMonopoly
         {
             CurrentPlayer.Position = TilePossition;
             Tiles[TilePossition].TileAction(CurrentPlayer, this);
+        }
+
+        public void nextTurn()
+        {
+            int index = Array.IndexOf(Players, CurrentPlayer);
+            if (index == 0)
+                CurrentPlayer = Players[1];
+            else
+                CurrentPlayer = Players[0];
+
         }
 
     }
