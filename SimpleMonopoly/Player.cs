@@ -5,10 +5,11 @@ namespace SimpleMonopoly
     {
         public string Name { get; set; }
         public int Money { get; set; }
+        public List<PropertyTile> Properties { get; set; }
         public int Position { get; set; }
         public bool IsInJail { get; set; }
+        public bool JustMovedToJail { get; set; }
         public int NumberOfTurns { get; set; }
-        List<PropertyTile> properties = new List<PropertyTile>();
         
 
 
@@ -16,6 +17,7 @@ namespace SimpleMonopoly
         {
             Name = name;
             Money = 2000;
+            Properties = new List<PropertyTile>();
             Position = 0;
             IsInJail = false;
             NumberOfTurns = 0;
@@ -44,7 +46,7 @@ namespace SimpleMonopoly
 
         public override string? ToString()
         {
-            return $"{Name} - {Money}";
+            return Name;
         }
     }
 }

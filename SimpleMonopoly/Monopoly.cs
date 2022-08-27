@@ -19,11 +19,22 @@ namespace SimpleMonopoly
 
             while (!isGameEnd())
             {
-                int diceValue = board.CurrentPlayer.RollDie();
-                board.MovePlayer(diceValue, true);
+                if (!board.CurrentPlayer.IsInJail)
+                {
+                    int diceValue = board.CurrentPlayer.RollDie();
+                    board.MovePlayer(diceValue);
+                }
+                else
+                {
+                    board.Tiles[Board.JAIL_POSITION].TileAction(board.CurrentPlayer, board);
+                }
+
                 board.nextTurn();
+                Util.Print("");
             }
+
             Util.Print($"====================");
+
             foreach (var player in board.Players)
             {
                 Util.Print($"{player.Name} has ended with £{player.Money}");

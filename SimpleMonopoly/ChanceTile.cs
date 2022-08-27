@@ -16,14 +16,16 @@ namespace SimpleMonopoly
             {
                 case 1:
                     player.AddMoney(2000);
-                    Util.Print($"{player.Name} wins the lottery and is given £2000");
+                    Util.Print($"{player} wins the lottery and is given £2000");
                     break;
                 case 2:
                     player.SubtractMoney(2000);
-                    Util.Print($"{player.Name} gets a black eye and loses £2000 trying to double up in the casini.");
+                    Util.Print($"{player} gets a black eye and loses £2000 trying to double up in the casini.");
                     break;
                 case 3:
-                    Util.Print($"{player.Name} was sent to jail for a bank roberry");
+                    Util.Print($"{player} was sent to jail for a bank roberry");
+                    player.JustMovedToJail = true;
+                    player.IsInJail = true;
                     board.MovePlayerTo(Board.JAIL_POSITION);                    
                     break;
                 default:

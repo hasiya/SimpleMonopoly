@@ -62,21 +62,23 @@ namespace SimpleMonopoly
         }
 
 
-        public void MovePlayer(int numberOfTiels, bool diceMove)
+        public void MovePlayer(int numberOfTiels)
         {
             int newPosition = (CurrentPlayer.Position + numberOfTiels) % Tiles.Length;
 
-            if (diceMove)
+            Util.Print($"{CurrentPlayer} rolled a {numberOfTiels} and going to \"{Tiles[newPosition]}\" tile.");
+            
+            if (newPosition < CurrentPlayer.Position)
             {
-                if (newPosition < CurrentPlayer.Position)
-                {
-                    Tiles[GO_POSITION].TileAction(CurrentPlayer, this);
-                }
-                CurrentPlayer.AddTurn();
+                Tiles[GO_POSITION].TileAction(CurrentPlayer, this);
             }
-
+            
+            
             CurrentPlayer.Position = newPosition;
-            Tiles[newPosition].TileAction(CurrentPlayer, this);
+            CurrentPlayer.AddTurn();
+
+            if (CurrentPlayer.Position != GO_POSITION)
+                Tiles[newPosition].TileAction(CurrentPlayer, this);
         }
 
         public void MovePlayerTo(int TilePossition)

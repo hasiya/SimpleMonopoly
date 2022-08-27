@@ -10,8 +10,9 @@ namespace SimpleMonopoly
 
         public override void TileAction(Player player, Board board)
         {
-            Util.Print($"{player.Name} is going jail!");
+            Util.Print($"{player} is going to jail!");
             player.IsInJail = true;
+            player.JustMovedToJail = true;
             board.MovePlayerTo(Board.JAIL_POSITION);
         }
     }

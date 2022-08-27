@@ -11,7 +11,7 @@ namespace SimpleMonopoly
         {
             player.AddMoney(200);
             board.PlayRounds++;
-            Util.Print($"{player.Name} is awarded £200 for passing/landing on Go!");
+            Util.Print($"{player} is awarded £200 for passing/landing on Go!");
             
         }
     }
