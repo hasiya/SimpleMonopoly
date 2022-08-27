@@ -48,10 +48,17 @@ namespace SimpleMonopoly
             int player1DiceValue = -1;
             int player2DiceValue = -1;
 
+            Util.Print("Finding who is going first.");
+
             do
             {
                 player1DiceValue = players[0].RollDie();
                 player2DiceValue = players[1].RollDie();
+                if (player1DiceValue == player2DiceValue)
+                {
+                    Util.Print($"{players[0]} and {players[1]} both rolled a {player1DiceValue}!");
+                    Util.Print("Both players are roling the dice again.");
+                }
 
             } while (player1DiceValue == player2DiceValue);
 
@@ -59,6 +66,12 @@ namespace SimpleMonopoly
                 CurrentPlayer = Players[0];
             else if (player2DiceValue > player1DiceValue)
                 CurrentPlayer = players[1];
+
+            Util.Print($"{players[0]} rolled a {player1DiceValue} and {players[1]} rolled a {player2DiceValue}.");
+            Util.Print($"{CurrentPlayer} rolled the higher value and going first.");
+            Util.Print("-----------------------------------------------");
+            Util.Print("");
+
         }
 
 

@@ -11,7 +11,7 @@ namespace SimpleMonopoly
         {
             if (player.IsInJail && player.JustMovedToJail)
             {
-                Util.Print($"{player.Name} is in jail.");
+                Util.Print($"{player} is in jail.");
                 player.JustMovedToJail = false;
             }
             else if (player.IsInJail)
