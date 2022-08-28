@@ -10,3 +10,14 @@ The game has two players Boot and Dog.
 
 ## Class Diagram
 ![Class Diagram](Images/Class%20Diagram.png)
+
+## Testing
+
+Unit testing was done using NUnit. Different test cases were written for following classes.\
+- Board Class
+- Player Class
+- PropertyTile Class
+- GoTile Class
+
+Run the SimpleMonopoly.Tests project to run all the test cases. 
+

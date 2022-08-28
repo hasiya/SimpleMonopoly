@@ -36,7 +36,7 @@ public class Monopoly
             {
                 var diceValue = Player.RollDice();
                 _board.MovePlayer(diceValue);
-                Util.Print($"{_board.CurrentPlayer}\'s balance - £{_board.CurrentPlayer.Money}");
+                Util.Print($"{_board.CurrentPlayer}\'s balance: £{_board.CurrentPlayer.Money}");
             }
             else
             {
