@@ -2,12 +2,12 @@
 
 public abstract class Tile
 {
+    public string Name { get; set; }
+
     public Tile(string name)
     {
         Name = name;
     }
-
-    public string Name { get; set; }
 
     public abstract void TileAction(Player player, Board board);
 

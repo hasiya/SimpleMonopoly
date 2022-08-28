@@ -130,7 +130,7 @@ public class Board
     {
         var newPosition = (CurrentPlayer.Position + numberOfTiles) % Tiles.Length;
 
-        Util.Print($"{CurrentPlayer} rolled a {numberOfTiles} and going to \"{Tiles[newPosition]}\" tile.");
+        Util.Print($"{CurrentPlayer} rolled a {numberOfTiles} and is going to \"{Tiles[newPosition]}\" tile.");
 
         if (newPosition < CurrentPlayer.Position)
             Tiles[GoPosition].TileAction(CurrentPlayer, this);

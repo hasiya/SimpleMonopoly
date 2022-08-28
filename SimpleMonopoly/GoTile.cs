@@ -24,6 +24,6 @@ public class GoTile : Tile
     public override void TileAction(Player player, Board board)
     {
         player.AddMoney(200);
-        Util.Print($"{player} is awarded £200 for passing/landing on Go!");
+        Util.Print($"{player} is awarded £200 for passing/landing on GO!");
     }
 }

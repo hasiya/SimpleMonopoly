@@ -2,8 +2,8 @@
 
 public static class Util
 {
-    public static void Print(string massage)
+    public static void Print(string message)
     {
-        Console.WriteLine(massage);
+        Console.WriteLine(message);
     }
 }

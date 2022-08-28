@@ -60,7 +60,7 @@ public class PropertyTile : Tile
         }
         else if (Owner == player)
         {
-            Util.Print($"{player} is visiting their own property {this}.");
+            Util.Print($"{player} is visiting their own property, {this}.");
         }
         else
         {
