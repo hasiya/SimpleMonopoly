@@ -14,7 +14,15 @@
 public class Player
 {
     public string Name { get; }
-    public int Money { get; private set; }
+
+    private double _money;
+
+    public double Money
+    {
+        get => Math.Round(_money, 2);
+        private set => _money = value;
+    }
+
     public List<PropertyTile> Properties { get; }
     public int Position { get; set; }
     public bool IsInJail { get; set; }
@@ -29,7 +37,7 @@ public class Player
     /// </summary>
     /// <param name="name">A string parameter to initialise the <c>Name</c> Property.</param>
     /// <param name="money">An Integer parameter to initialise the <c>Money</c> Property.</param>
-    public Player(string name, int money = 2000)
+    public Player(string name, double money = 2000.00)
     {
         Name = name;
         Money = money;
