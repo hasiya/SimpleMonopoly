@@ -1,6 +1,4 @@
 ﻿using SimpleMonopoly;
 
-
-Monopoly monopoly = new Monopoly();
+var monopoly = new Monopoly();
 monopoly.StartGame();
-

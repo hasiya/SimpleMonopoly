@@ -1,21 +1,18 @@
-﻿using System;
-namespace SimpleMonopoly
+﻿namespace SimpleMonopoly;
+
+public abstract class Tile
 {
-    public abstract class Tile
+    public Tile(string name)
     {
+        Name = name;
+    }
 
-        public string Name { get; set; }
-        public Tile(string name)
-        {
-            Name = name;
-        }
+    public string Name { get; set; }
 
-        public abstract void TileAction(Player player, Board board);
+    public abstract void TileAction(Player player, Board board);
 
-        public override string? ToString()
-        {
-            return Name;
-        }
+    public override string? ToString()
+    {
+        return Name;
     }
 }
-

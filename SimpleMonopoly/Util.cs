@@ -1,12 +1,9 @@
-﻿using System;
-namespace SimpleMonopoly
+﻿namespace SimpleMonopoly;
+
+public static class Util
 {
-    public class Util
+    public static void Print(string massage)
     {
-        public static void Print(string massage)
-        {
-            Console.WriteLine(massage);
-        }
+        Console.WriteLine(massage);
     }
 }
-
