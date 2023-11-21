@@ -13,7 +13,7 @@ The game has two players Boot and Dog.
 
 ## Testing
 
-Unit testing was done using NUnit. Different test cases were written for following classes.\
+Unit testing was done using NUnit. Different test cases were written for following classes.
 - Board Class
 - Player Class
 - PropertyTile Class
